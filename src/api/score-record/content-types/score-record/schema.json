@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "score_records",
+  "info": {
+    "singularName": "score-record",
+    "pluralName": "score-records",
+    "displayName": "score_record"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "level": {
+      "type": "string"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "steps": {
+      "type": "integer"
+    }
+  }
+}

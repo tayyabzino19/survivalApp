@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "post_likes",
+  "info": {
+    "singularName": "post-like",
+    "pluralName": "post-likes",
+    "displayName": "Post-support",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "post": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::post.post",
+      "inversedBy": "post_supports"
+    },
+    "epoch_id": {
+      "type": "string"
+    }
+  }
+}

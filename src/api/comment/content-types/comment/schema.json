@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comments",
+  "info": {
+    "singularName": "comment",
+    "pluralName": "comments",
+    "displayName": "Comment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "message": {
+      "type": "string"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "comments"
+    },
+    "comment_replies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment-reply.comment-reply",
+      "mappedBy": "comment"
+    },
+    "comment_reply_likes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::comment-reply-like.comment-reply-like",
+      "inversedBy": "comments"
+    },
+    "comment_likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment-like.comment-like"
+    },
+    "posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "inversedBy": "post_comments"
+    },
+    "likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment-like.comment-like",
+      "mappedBy": "comment"
+    }
+  }
+}
